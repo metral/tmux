@@ -1,18 +1,16 @@
-Installing tmux
----------------
+Install & Setup tmux
+--------------------
 
 Debian/Ubuntu:
+
 sudo apt-get install tmux
-
-
-Setting up tmux configurations
------------------------------
-
+git clone git://github.com/metral/tmux.git
+cd tmux
 ln -s tmux.conf ~/.tmux.conf
 
 
-Create static tmux sessions
----------------------------
+Creating static tmux sessions
+-----------------------------
 
 Edit/Customize 'tmux_session' in your favorite editor
 
