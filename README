@@ -1,0 +1,10 @@
+Setting up tmux
+---------------
+ln -s tmux.conf ~/.tmux.conf
+
+Create static tmux sessions
+------------------------------
+
+Customize 'tmux_session'
+
+Then run ./tmux_session
