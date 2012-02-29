@@ -1,0 +1,58 @@
+#!/bin/bash
+#-------------------------------------------------------------------------------
+# Variables 
+
+# The name of your tmux session
+SESSION=`basename $0`
+
+# Tmux key binding that simulates pressing ENTER for a command sent to a window
+SEND_KEYS_PRESS_ENTER='C-m'
+
+#-------------------------------------------------------------------------------
+# If the tmux SESSION is already running, just attach to it.
+
+tmux has-session -t $SESSION
+if [ $? -eq 0 ]; then
+    echo "Session $SESSION already exists. Attaching."
+    sleep 1
+    tmux -2 attach -t $SESSION
+    exit 0;
+fi
+
+#-------------------------------------------------------------------------------
+# Tmux variables
+
+DEFAULT_WINDOW=$SESSION:0
+
+# Tmux window names & shell commands to send to each
+SESSION_0_NAME='ssh'
+SESSION_0_CMDS_0='ssh localhost'
+
+SESSION_1_NAME='ls'
+SESSION_1_CMDS_0='cd /etc'
+SESSION_1_CMDS_1='ls -alh'
+
+SESSION_2_NAME='bash'
+
+#-------------------------------------------------------------------------------
+# Tmux setup
+
+# Since SESSION doesn't exist, create it & detach it
+tmux -2 new-session -d -s $SESSION
+
+# Setup the tmux windows for SESSION and send it its respective commands
+tmux new-window -t $SESSION:0 -k -n $SESSION_0_NAME "$SESSION_0_CMDS_0"
+
+tmux new-window -t $SESSION:1 -k -n $SESSION_1_NAME
+tmux send-keys "$SESSION_1_CMDS_0" "$SEND_KEYS_PRESS_ENTER"
+tmux send-keys "$SESSION_1_CMDS_1"
+
+tmux new-window -t $SESSION:2 -k -n $SESSION_2_NAME
+
+#-------------------------------------------------------------------------------
+# Select the default window and attach to the tmux session
+
+tmux select-window -t $DEFAULT_WINDOW
+tmux -2 attach -t $SESSION
+
+#-------------------------------------------------------------------------------
