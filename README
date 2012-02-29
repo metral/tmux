@@ -1,10 +1,32 @@
-Setting up tmux
+Installing tmux
 ---------------
+
+Debian/Ubuntu:
+sudo apt-get install tmux
+
+
+Setting up tmux configurations
+-----------------------------
+
 ln -s tmux.conf ~/.tmux.conf
 
+
 Create static tmux sessions
-------------------------------
+---------------------------
 
-Customize 'tmux_session'
+Edit/Customize 'tmux_session' in your favorite editor
 
-Then run ./tmux_session
+Then run ./tmux_session to start the session
+
+Note: The session's name will be the name of the session file. In this case,
+our session will be called 'tmux_session'
+
+If you detach this session, you can restore it by doing either:
+
+Traditional: tmux attach -t tmux_session
+
+or
+
+Shell script: ./tmux_session
+The shell script will search for existing sessions by the same name and do the
+attaching for you
