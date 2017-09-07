@@ -2,7 +2,7 @@
 
 ## Debian/Ubuntu:
 
-`git clone git://github.com/metral/tmux.git ~/.tmux`
+`git clone https://github.com/metral/tmux.git ~/.tmux`
 
 `cd ~/.tmux`
 
