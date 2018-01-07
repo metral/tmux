@@ -2,14 +2,7 @@
 
 ## Debian/Ubuntu:
 
-`git clone https://github.com/metral/tmux.git ~/.tmux`
-
-`cd ~/.tmux`
-
-`./setup.sh`
-
-`ln -s ~/.tmux/tmux.conf ~/.tmux.conf`
-
+`git clone https://github.com/metral/tmux.git ~/.tmux; cd ~/.tmux; ./setup.sh; ln -s ~/.tmux/tmux.conf ~/.tmux.conf`
 
 ## Creating static tmux sessions (Optional)
 
