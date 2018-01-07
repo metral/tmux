@@ -13,3 +13,7 @@ popd
 popd
 
 rm -rf /tmp/tmux*
+
+cat >> ~/.bashrc << EOF
+export PATH=\$PATH:\$HOME/.tmux
+EOF
