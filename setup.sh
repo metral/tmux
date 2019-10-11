@@ -3,7 +3,7 @@
 sudo apt-get update -y
 sudo apt-get install libevent-dev libncurses-dev pkg-config -y
 
-wget https://github.com/tmux/tmux/releases/download/2.1/tmux-2.1.tar.gz -O /tmp/tmux.tar.gz
+wget https://github.com/tmux/tmux/releases/download/2.9a/tmux-2.9a.tar.gz -O /tmp/tmux.tar.gz
 pushd /tmp
 tar xvfz tmux*.tar.gz
 pushd tmux-*
